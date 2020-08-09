@@ -1,11 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataAction, resetStore } from './redux';
 import { getData } from '../../store/selectors';
-import ResultRow from '../ResultRow';
-import SelectedTemplate from '../SelectedTemplate';
+// import ResultRow from '../ResultRow';
 import { addItem } from '../SelectedTemplate/redux';
 import DefaultBtn from '../../elements/buttons/DefaultBtn';
+
+const LazySelComp = lazy(() => import('../SelectedTemplate'));
+const ResultRow = lazy(() => import('../ResultRow'));
 
 const SearchTemplate = () => {
 	const dispatch = useDispatch();
@@ -71,21 +73,26 @@ const SearchTemplate = () => {
 					<section className="search-result-template">
 						{data.map(({ title, filePath, description, id }) => {
 							return (
-								<ResultRow
-									key={id}
-									id={id}
-									title={title}
-									filePath={filePath}
-									description={description}
-									select={select}
-								/>
+								<Suspense fallback="Loading..." key={id}>
+									<ResultRow
+										id={id}
+										title={title}
+										filePath={filePath}
+										description={description}
+										select={select}
+									/>
+								</Suspense>
 							);
 						})}
 					</section>
 				) : (
 					<DefaultBtn className={'defaultBtn'} onClick={triggerShow} text="Show Search result" />
 				))}
-			{showSelected ? <SelectedTemplate /> : null}
+			{showSelected ? (
+				<Suspense fallback={'Please wait ...'}>
+					<LazySelComp />
+				</Suspense>
+			) : null}
 		</section>
 	);
 };

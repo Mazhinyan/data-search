@@ -22,7 +22,7 @@ $white: rgb(252, 247, 247);
 .cancelBtn {
 	background-color: $defaultGray;
 }
-@import "./layout/Home/Home.scss";
+
 @import "./components/SearchTemplate/SearchTemplate.scss";
 @import "./components/SelectedTemplate/Selectedtemplate.scss";
 @import "./components//ResultRow/ResultRow.scss";
