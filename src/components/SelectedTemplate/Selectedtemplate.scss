@@ -1,0 +1,12 @@
+.selcted-template {
+	margin: 20px auto;
+	border: 1px solid;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: $lightBlue;
+	max-height: 250px;
+	overflow-y: auto;
+	.result-row {
+		cursor: default;
+	}
+}

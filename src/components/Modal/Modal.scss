@@ -1,0 +1,27 @@
+.modal-container {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba($black, 0.7);
+	padding: 20px;
+	.modal-item {
+		max-width: 500px;
+		min-height: 100px;
+		width: 100%;
+		margin: 40px auto;
+		background-color: $white;
+		border-radius: 15px;
+		padding: 7px;
+		.modal-mess {
+			text-align: center;
+		}
+		.modal-btns {
+			margin-top: 20px;
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+}

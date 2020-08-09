@@ -4,12 +4,13 @@ import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import './index.scss';
+import Home from './layout/Home';
 
 const Root = () => {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<section>start from here</section>
+				<Home />
 			</PersistGate>
 		</Provider>
 	);

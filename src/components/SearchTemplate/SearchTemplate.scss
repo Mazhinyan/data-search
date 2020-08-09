@@ -1,0 +1,17 @@
+.search-template {
+	margin: auto;
+	max-width: 600px;
+	padding: 10px;
+	.search-input-dir {
+		input {
+			position: relative;
+			-ms-flex: 1 1 auto;
+			flex: 1 1 auto;
+		}
+	}
+	.search-result-template {
+		padding-right: 5px;
+		max-height: 250px;
+		overflow-y: auto;
+	}
+}
